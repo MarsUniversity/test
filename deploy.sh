@@ -11,8 +11,9 @@ set -e
 
 # rm -rf .git > /dev/null 2>&1
 
-# rm LICENSE
-# rm README.md
+rm -f LICENSE
+rm -f README.md
+rm -f *.html
 
 echo "hi" > index.html
 

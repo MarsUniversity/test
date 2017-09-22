@@ -1,0 +1,24 @@
+os: osx
+sudo: false
+# osx_image: xcode9
+
+# before_install:
+#     - brew update
+#     - brew list
+#     - brew cask list
+#     - brew upgrade python
+#     - brew install pandoc
+#     - brew cask install basictex
+#     - brew cask install wkhtmltopdf
+#     - export PATH=$PATH:/Library/TeX/texbin
+
+install: true
+
+script:
+#     # OMG windows seems to be removing the executable bit of my scripts!!!
+    # - chmod a+x website/build_html.sh
+    # - ls -al website
+    # - which pdflatex
+    # - which pandoc
+#     # - ./website/build_html.sh
+    - ./build.sh
