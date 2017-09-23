@@ -9,20 +9,23 @@ TOKEN=$GITHUB_TOKEN
 
 set -e
 
-# rm -rf .git > /dev/null 2>&1
+echo "nuked git"
+rm -rf .git > /dev/null 2>&1
 
 rm -f LICENSE
 rm -f README.md
 rm -f *.html
 
-echo "hi" > index.html
-
 if [[ -f ".gitignore" ]]; then
 	rm .gitnore
 fi
 
+echo "creating web page"
+echo "hi" > index.html
 touch "deployed at `date`"
-# git init
+
+echo "redoing git"
+git init
 git config user.email ${EMAIL}
 git config user.name ${USER}
 git add *
