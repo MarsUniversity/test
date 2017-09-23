@@ -9,6 +9,11 @@ TOKEN=$GITHUB_TOKEN
 
 set -e
 
+ls -al ../
+mkdir ../tmpdir
+touch ../tmpdir/test.txt
+ls -al ../tmpdir
+
 echo "nuked git"
 rm -rf .git > /dev/null 2>&1
 
@@ -21,8 +26,8 @@ if [[ -f ".gitignore" ]]; then
 fi
 
 echo "creating web page"
-echo "hi" > index.html
-touch "deployed at `date`"
+echo "hi: `date`" > index.html
+echo "deployed at `date`" > README
 
 echo "redoing git"
 git init
