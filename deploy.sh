@@ -6,28 +6,42 @@ USER="walchko"
 REPO="github.com/MarsUniversity/test"
 BRANCH="gh-pages"
 TOKEN=$GITHUB_TOKEN
+FOLDER="www"
+TMP="../tmpdir"
 
 set -e
 
-ls -al ../
-mkdir ../tmpdir
-touch ../tmpdir/test.txt
-ls -al ../tmpdir
+# ls -al ../
+# mkdir ../tmpdir
+# touch ../tmpdir/test.txt
+# ls -al ../tmpdir
 
-echo "nuked git"
-rm -rf .git > /dev/null 2>&1
+mkdir -p ${TMP}
 
-rm -f LICENSE
-rm -f README.md
-rm -f *.html
+# echo "nuked git"
+# rm -rf .git > /dev/null 2>&1
+#
+# rm -f LICENSE
+# rm -f README.md
+# rm -f *.html
+#
+# if [[ -f ".gitignore" ]]; then
+# 	rm .gitnore
+# fi
 
-if [[ -f ".gitignore" ]]; then
-	rm .gitnore
-fi
+mkdir -p ${FOLDER}
+
+cd ${FOLDER}
 
 echo "creating web page"
 echo "hi: `date`" > index.html
 echo "deployed at `date`" > README
+
+cd ..
+
+cp ${FOLDER}/* ${TMP}
+
+cd ${TMP}
 
 echo "redoing git"
 git init
